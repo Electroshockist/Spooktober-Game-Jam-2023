@@ -17,3 +17,7 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="Spooktober-game-jam-2023"
+
+[filesystem]
+
+import/fbx/enabled=false
