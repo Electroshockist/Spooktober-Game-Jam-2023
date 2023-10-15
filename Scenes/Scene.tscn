@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://bx4twx15ayebq"]
+
+[ext_resource type="PackedScene" uid="uid://ydcyl5aldw8j" path="res://KayKit_Adventurers_1.0_FREE/Characters/gltf/Barbarian.glb" id="1_j5fxp"]
+[ext_resource type="Texture2D" uid="uid://bddm33c1awcjh" path="res://kenney_prototype-textures/PNG/Dark/texture_05.png" id="2_cn0ns"]
+[ext_resource type="Texture2D" uid="uid://c285jcc35rarw" path="res://kenney_prototype-textures/PNG/Red/texture_09.png" id="3_sgweq"]
+[ext_resource type="Texture2D" uid="uid://bqxhbjlyr2ker" path="res://kenney_prototype-textures/PNG/Green/texture_08.png" id="4_n1cln"]
+[ext_resource type="Texture2D" uid="uid://bm4jlqtj4rr4s" path="res://kenney_prototype-textures/PNG/Orange/texture_08.png" id="5_5osdb"]
+[ext_resource type="PackedScene" uid="uid://bcb1f6m8mglob" path="res://Scenes/Player.tscn" id="6_12ran"]
+[ext_resource type="PackedScene" uid="uid://pk504q3fo0vr" path="res://Scenes/UI.tscn" id="7_pof8x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s1tw"]
+albedo_texture = ExtResource("2_cn0ns")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hma5"]
+albedo_texture = ExtResource("3_sgweq")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_us623"]
+albedo_texture = ExtResource("4_n1cln")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebwxe"]
+albedo_texture = ExtResource("5_5osdb")
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(2.44137, 0, 0, 0, 2.44137, 0, 0, 0, 2.44137, 0, 0, 0)
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_4s1tw")
+size = Vector3(1000, 1, 1000)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(0.355815, 0, 0.933351, 0, 0.998873, 0, -0.933351, 0, 0.355815, 1.83648, 0.550374, 0.552028)
+material_override = SubResource("StandardMaterial3D_4hma5")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1.85567, 0, -0.644363, 0, 1.96437, 0, 0.644363, 0, 1.85567, 0.0964636, 1.05907, -2.8464)
+material_override = SubResource("StandardMaterial3D_us623")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map"]
+transform = Transform3D(0.00636041, 0, -1.39094, 0, 1.39096, 0, 1.39094, 0, 0.00636041, -3.32443, 0.619268, 1.28596)
+material_override = SubResource("StandardMaterial3D_ebwxe")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(-0.999925, 0.00872522, 0.00857588, 0.0109253, 0.321375, 0.946889, 0.00550574, 0.946912, -0.321446, -3.45223, 11.0814, -10.4325)
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("6_12ran")]
+
+[node name="Barbarian" parent="CharacterBody3D2" instance=ExtResource("1_j5fxp")]
+transform = Transform3D(0.541804, 0, 0, 0, 0.541804, 0, 0, 0, 0.541804, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D2/Barbarian"]
+transform = Transform3D(-0.755947, 0.00659623, 0.00648342, 0.00911439, 0.621377, 0.430523, -0.0015725, 0.430569, -0.62141, -6.68899, 19.6842, -22.0303)
+
+[node name="UI" parent="." instance=ExtResource("7_pof8x")]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcb1f6m8mglob"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_41nbk"]
+[ext_resource type="Script" path="res://InputPair.gd" id="2_5nvfi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q17f3"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_41nbk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_q17f3")
+
+[node name="Vertical" type="Node" parent="."]
+script = ExtResource("2_5nvfi")
+
+[node name="Horizontal" type="Node" parent="."]
+script = ExtResource("2_5nvfi")
