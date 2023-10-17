@@ -18,7 +18,7 @@ kanban-plugin: basic
 
 ## Todo
 
-- [ ] #Feature <br>- add Enemy<br>	- [ ] add "Sight" Component<br>	- [ ] add enemy ai<br>		- [ ] add enemy wandering
+- [ ] #Feature <br>- [ ] add ai to enemy<br>	- [ ] add enemy ai<br>		- [ ] add enemy wandering
 - [ ] #Feature <br>- [ ] grab system<br>	- [ ] allow enemies to grab player<br>	- [ ] allow player to fight to escape grab
 - [ ] #Feature <br>- [ ] add Crouching to player
 - [ ] #Feature <br>- [ ] add Sprinting to player
@@ -30,6 +30,8 @@ kanban-plugin: basic
 
 ## Claimed (Adrian)
 
+- [ ] #Feature <br>- [ ] add "Sight" Component
+- [ ] #Feature <br>- [ ] add Enemy
 
 
 ## Completed
