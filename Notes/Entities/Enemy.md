@@ -1,5 +1,10 @@
-Uses [[Health]]
-
 - Standard enemy
-	- see the player if they are within their field of vision for long enough
-	- #Stretch hear noises emmited nearby
+	- see the target if they are within their field of vision for long enough
+	- #Stretch hear noises emitted nearby
+	- wander around (different for enemy type)
+	- #Stretch guard a fixed position
+	- #Stretch patrol a route
+	- #Stretch investigate a position (look for target)
+	- chase and kill target(s) if set
+	- die if stealth killed
+	- #Stretch Enemies can fight and kill each other

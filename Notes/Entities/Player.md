@@ -1,4 +1,11 @@
-Uses [[Health]]
-
 - Player
-	- 
+	- First person movement
+	- fight back when grabbed
+	- Crouching decreases speed at which enemies notice you (quieter than walking)
+	- cover can hide you from enemies
+	- get grabbed by enemy
+		- 3 tries
+		- regenerate tries when in not targeted
+	- stealth kill enemies
+	- #Stretch attack enemies
+	- Sprint (louder than walking)

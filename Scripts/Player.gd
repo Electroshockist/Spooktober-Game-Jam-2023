@@ -25,12 +25,6 @@ func _input(event):
 		var rot: Vector2 = Vector2(event.relative.y * rotation_sensitvity * 0.001, -event.relative.x * rotation_sensitvity * 0.001)
 		
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x - rot.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
-		print(rad_to_deg($Camera3D.rotation.x))
-		
-		#var can_turn : bool = not(camrot >= deg_to_rad(max_pitch) and rot.x > 0 or camrot <= deg_to_rad(min_pitch) and rot.x <0)
-		
-		#if can_turn:
-			#$Camera3D.rotate_x(rot.x)
 		rotate_y(rot.y)
 
 func _physics_process(_delta):
@@ -43,12 +37,10 @@ func _physics_process(_delta):
 	var final_input = -Vector3(input_dir.x, 0, input_dir.y) * speed * transform.basis.inverse()
 	
 	velocity = final_input + Vector3(0, velocity.y ,0)
-	#print(is_on_floor())
 	if !is_on_floor():
 		velocity.y += GRAVITY * gravity_scale
 		
 	elif(Input.is_action_just_pressed("Jump")):
 		velocity.y += jump_force
 
-	#print(velocity)
 	move_and_slide()

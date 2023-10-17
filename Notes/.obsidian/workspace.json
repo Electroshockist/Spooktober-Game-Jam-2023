@@ -6,7 +6,7 @@
       {
         "id": "7fd2e25523d4b02d",
         "type": "tabs",
-        "dimension": 99.99999999999999,
+        "dimension": 38.13451776649746,
         "children": [
           {
             "id": "bba1b8d828183717",
@@ -16,10 +16,27 @@
               "state": {
                 "file": "Main Canvas.canvas",
                 "viewState": {
-                  "x": 604.9694410108635,
-                  "y": -772.4618770059999,
-                  "zoom": -1.3333333333333333
+                  "x": 1538.4619397074616,
+                  "y": -761.9692487462357,
+                  "zoom": -1.1102230246251565e-16
                 }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "ed11fd4cc6dfbd8d",
+        "type": "tabs",
+        "dimension": 61.86548223350253,
+        "children": [
+          {
+            "id": "d6c6612b178984b9",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "Todo.md"
               }
             }
           }
@@ -52,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Strech",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,8 +86,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -90,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Main Canvas.canvas",
+                "file": "Todo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Main Canvas.canvas",
+                "file": "Todo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Main Canvas.canvas"
+                "file": "Todo.md"
               }
             }
           }
@@ -151,15 +167,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bba1b8d828183717",
+  "active": "d6c6612b178984b9",
   "lastOpenFiles": [
-    "Todo.md",
     "Main Canvas.canvas",
+    "Shared Components/Health.md",
+    "Todo.md",
+    "Entities/Player.md",
     "Design",
     "Shared Components",
     "Entities",
-    "Entities/Player.md",
-    "Shared Components/Health.md",
     "Entities/Enemy.md",
     "2023-10-16.md",
     "Untitled.md",

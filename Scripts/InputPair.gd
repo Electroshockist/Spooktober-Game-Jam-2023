@@ -10,7 +10,6 @@ var calculated_input: float = 0.0
 var active_dir:int = 0
 	
 func _physics_process(_delta):
-	#InputMap.get_action()
 	var input_pair_name = [negative_input_name, positive_input_name]
 	if Input.is_action_just_pressed(input_pair_name[(int)(!active_dir)]) :
 		active_dir = !active_dir
