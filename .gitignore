@@ -1,2 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Obsidian ignores
+.Notes/.obsidian/workspace.json
+.Notes/.obsidian/workspaces.json
+.Notes/.obsidian/workspace-mobile.json
+
