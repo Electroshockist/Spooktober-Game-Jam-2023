@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0apxuy8b62ck"]
+
+[ext_resource type="Texture2D" path="res://kenney_prototype-textures/PNG/Dark/texture_05.png" id="1_dpyy1"]
+[ext_resource type="Texture2D" path="res://kenney_prototype-textures/PNG/Red/texture_09.png" id="2_y7v73"]
+[ext_resource type="Texture2D" path="res://kenney_prototype-textures/PNG/Green/texture_08.png" id="3_0a4yy"]
+[ext_resource type="Texture2D" path="res://kenney_prototype-textures/PNG/Orange/texture_08.png" id="4_52d0w"]
+[ext_resource type="PackedScene" uid="uid://bcb1f6m8mglob" path="res://Assets/Prefabs/Player.tscn" id="5_05avn"]
+[ext_resource type="PackedScene" uid="uid://pk504q3fo0vr" path="res://Assets/Scenes/UI.tscn" id="6_i0l00"]
+[ext_resource type="PackedScene" uid="uid://6nrjl78sms0f" path="res://Assets/Prefabs/Test_Enemy.tscn" id="7_61cdx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s1tw"]
+albedo_texture = ExtResource("1_dpyy1")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d66n4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hma5"]
+albedo_texture = ExtResource("2_y7v73")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_us623"]
+albedo_texture = ExtResource("3_0a4yy")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebwxe"]
+albedo_texture = ExtResource("4_52d0w")
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(-0.999925, 0.00872522, 0.00857588, 0.0109253, 0.321375, 0.946889, 0.00550574, 0.946912, -0.321446, -3.45223, 11.0814, -10.4325)
+
+[node name="Floor" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 16.8, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_4s1tw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Floor"]
+disable_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_d66n4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(0.868676, 0, 2.27866, 0, 2.43862, 0, -2.27866, 0, 0.868676, 4.48353, 1.34367, 1.3477)
+material_override = SubResource("StandardMaterial3D_4hma5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_d66n4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map"]
+transform = Transform3D(4.53038, 0, -1.57313, 0, 4.79575, 0, 1.57313, 0, 4.53038, 0.235503, 2.58558, -6.94912)
+material_override = SubResource("StandardMaterial3D_us623")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/CSGBox3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/CSGBox3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_d66n4")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map"]
+transform = Transform3D(0.0155281, 0, -3.3958, 0, 3.39585, 0, 3.3958, 0, 0.0155281, -8.11616, 1.51186, 3.1395)
+material_override = SubResource("StandardMaterial3D_ebwxe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/CSGBox3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/CSGBox3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_d66n4")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map"]
+transform = Transform3D(-10.5963, 0.437878, 10.1442, 0.0260452, 4.55797, -7.23532, -4.13041, -1.09461, -26.07, -9.38035, 1.03888, 23.0516)
+material_override = SubResource("StandardMaterial3D_ebwxe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/CSGBox3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/CSGBox3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_d66n4")
+
+[node name="Player" parent="." instance=ExtResource("5_05avn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+jump_force = 25.0
+gravity_scale = 0.1
+
+[node name="UI" parent="." instance=ExtResource("6_i0l00")]
+
+[node name="Test_Enemy" parent="." instance=ExtResource("7_61cdx")]
+transform = Transform3D(-0.219114, 0, -0.975699, 0, 1, 0, 0.975699, 0, -0.219114, 4.27711, 1, 7.02815)

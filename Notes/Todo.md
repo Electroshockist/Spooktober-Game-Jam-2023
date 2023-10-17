@@ -30,12 +30,12 @@ kanban-plugin: basic
 
 ## Claimed (Adrian)
 
-- [ ] #Feature <br>- [ ] add "Sight" Component
-- [ ] #Feature <br>- [ ] add Enemy
+- [ ] #Feature <br>- [x] add "Sight" Component<br>- [ ] get a list of entities in view
 
 
 ## Completed
 
+- [ ] #Feature <br>- [x] add Enemy
 - [ ] #Feature <br>- Character movement
 - [ ] #Feature <br>- first person camera
 
