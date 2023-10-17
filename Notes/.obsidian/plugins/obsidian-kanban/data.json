@@ -1,0 +1,16 @@
+{
+  "hide-tags-in-title": true,
+  "tag-colors": [
+    {
+      "tagKey": "#Feature",
+      "color": "rgba(255, 255, 255, 1)",
+      "backgroundColor": "rgba(20, 203, 28, 0.65)"
+    },
+    {
+      "tagKey": "#Bug",
+      "color": "rgba(255, 255, 255, 1)",
+      "backgroundColor": "rgba(140, 30, 217, 0.75)"
+    }
+  ],
+  "new-line-trigger": "shift-enter"
+}

@@ -6,16 +6,20 @@
       {
         "id": "7fd2e25523d4b02d",
         "type": "tabs",
+        "dimension": 99.99999999999999,
         "children": [
           {
             "id": "bba1b8d828183717",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Brainstorm.md",
-                "mode": "source",
-                "source": false
+                "file": "Main Canvas.canvas",
+                "viewState": {
+                  "x": 604.9694410108635,
+                  "y": -772.4618770059999,
+                  "zoom": -1.3333333333333333
+                }
               }
             }
           }
@@ -48,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Strech",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +69,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Brainstorm.md",
+                "file": "Main Canvas.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Brainstorm.md",
+                "file": "Main Canvas.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Brainstorm.md"
+                "file": "Main Canvas.canvas"
               }
             }
           }
@@ -148,8 +153,18 @@
   },
   "active": "bba1b8d828183717",
   "lastOpenFiles": [
-    "Game Loop.md",
-    "Brainstorm.md",
+    "Todo.md",
+    "Main Canvas.canvas",
+    "Design",
+    "Shared Components",
+    "Entities",
+    "Entities/Player.md",
+    "Shared Components/Health.md",
+    "Entities/Enemy.md",
+    "2023-10-16.md",
+    "Untitled.md",
+    "Design/Game Loop.md",
+    "Design/Brainstorm.md",
     "Notes",
     "New folder"
   ]
