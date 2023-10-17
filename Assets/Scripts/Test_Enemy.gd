@@ -1,16 +1,17 @@
 extends Enemy
-
 class_name Test_Enemy
 
+#component references
 var team: Team
-var viewshape: Area3D
+var sight: Sight
 
 func _ready():
-	#not working yet
-	viewshape = Area3D.new()
-	var shape = ConvexPolygonShape3D.new().set
-	viewshape.CollisionShape3D.shape = shape
+	#get components
 	team = $Team
+	sight = $Sight
+
+func _process(delta):
+	pass
 
 func _physics_process(delta):
 	pass

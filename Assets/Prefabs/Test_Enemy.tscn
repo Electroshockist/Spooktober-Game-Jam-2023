@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6nrjl78sms0f"]
+[gd_scene load_steps=7 format=3 uid="uid://6nrjl78sms0f"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Test_Enemy.gd" id="1_bynlt"]
 [ext_resource type="Script" path="res://Assets/Scripts/Team.gd" id="2_1gwhy"]
@@ -9,9 +9,6 @@
 [sub_resource type="BoxMesh" id="BoxMesh_1dil0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ggst4"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vowc3"]
-points = PackedVector3Array(-1, -2, -1, -1, -2, 1, -0.185, 0, -0.185, -0.185, 0, 0.185, 1, -2, -1, 1, -2, 1, 0.185, 0, -0.185, 0.185, 0, 0.185)
 
 [node name="Test_Enemy" type="CharacterBody3D"]
 script = ExtResource("1_bynlt")
@@ -34,11 +31,8 @@ script = ExtResource("2_1gwhy")
 team_name = "A"
 
 [node name="Sight" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.145)
 script = ExtResource("3_35fhm")
-
-[node name="Area3D" type="Area3D" parent="Sight"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sight/Area3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_vowc3")
+horizontal_fov = 60.0
+vertical_fov = 30.0
+far_clipping_plane = 10.0

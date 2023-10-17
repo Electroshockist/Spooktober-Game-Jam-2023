@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c285jcc35rarw" path="res://Assets/Meshes/kenney_prototype-textures/PNG/Red/texture_09.png" id="3_sgweq"]
 [ext_resource type="Texture2D" uid="uid://bqxhbjlyr2ker" path="res://Assets/Meshes/kenney_prototype-textures/PNG/Green/texture_08.png" id="4_n1cln"]
 [ext_resource type="Texture2D" uid="uid://bm4jlqtj4rr4s" path="res://Assets/Meshes/kenney_prototype-textures/PNG/Orange/texture_08.png" id="5_5osdb"]
-[ext_resource type="PackedScene" uid="uid://bcb1f6m8mglob" path="res://Prefabs/Player.tscn" id="6_12ran"]
-[ext_resource type="PackedScene" uid="uid://pk504q3fo0vr" path="res://Scenes/UI.tscn" id="7_pof8x"]
+[ext_resource type="PackedScene" uid="uid://bcb1f6m8mglob" path="res://Assets/Prefabs/Player.tscn" id="6_12ran"]
+[ext_resource type="PackedScene" uid="uid://pk504q3fo0vr" path="res://Assets/Scenes/UI.tscn" id="7_pof8x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s1tw"]
 albedo_texture = ExtResource("2_cn0ns")
