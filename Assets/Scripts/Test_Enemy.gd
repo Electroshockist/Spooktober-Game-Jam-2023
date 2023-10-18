@@ -1,5 +1,5 @@
 extends Enemy
-class_name Test_Enemy
+class_name TestEnemy
 
 #component references
 var team: Team
