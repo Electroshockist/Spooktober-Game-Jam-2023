@@ -1,31 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0apxuy8b62ck"]
+[gd_scene load_steps=13 format=3 uid="uid://d0apxuy8b62ck"]
 
-[ext_resource type="Texture2D" uid="uid://bddm33c1awcjh" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Dark/texture_05.png" id="1_ipl6a"]
-[ext_resource type="Texture2D" uid="uid://bqxhbjlyr2ker" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Green/texture_08.png" id="2_aqeiy"]
-[ext_resource type="Texture2D" uid="uid://bm4jlqtj4rr4s" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Orange/texture_08.png" id="3_4nyig"]
-[ext_resource type="PackedScene" uid="uid://bcb1f6m8mglob" path="res://Assets/Prefabs/Player.tscn" id="5_05avn"]
-[ext_resource type="PackedScene" uid="uid://pk504q3fo0vr" path="res://Assets/Scenes/UI.tscn" id="6_i0l00"]
-[ext_resource type="PackedScene" uid="uid://6nrjl78sms0f" path="res://Assets/Prefabs/Test_Enemy.tscn" id="7_61cdx"]
+[ext_resource type="PackedScene" uid="uid://pk504q3fo0vr" path="res://Assets/Prefabs/UI.tscn" id="1_kpluh"]
+[ext_resource type="Texture2D" uid="uid://bddm33c1awcjh" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Dark/texture_05.png" id="2_tdokj"]
+[ext_resource type="Texture2D" uid="uid://c285jcc35rarw" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Red/texture_09.png" id="3_4d0ki"]
+[ext_resource type="Texture2D" uid="uid://bqxhbjlyr2ker" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Green/texture_08.png" id="4_pkkic"]
+[ext_resource type="Texture2D" uid="uid://bm4jlqtj4rr4s" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Orange/texture_08.png" id="5_n0fub"]
+[ext_resource type="PackedScene" uid="uid://mmeolp64ush1" path="res://Assets/Prefabs/test_enemy.tscn" id="6_3d0r0"]
+[ext_resource type="PackedScene" uid="uid://bcb1f6m8mglob" path="res://Assets/Prefabs/player.tscn" id="7_4qup1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqnbp"]
-albedo_texture = ExtResource("1_ipl6a")
+albedo_texture = ExtResource("2_tdokj")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgebn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ilh6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skf78"]
+albedo_texture = ExtResource("3_4d0ki")
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsy1i"]
-albedo_texture = ExtResource("2_aqeiy")
+albedo_texture = ExtResource("4_pkkic")
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1hr8"]
-albedo_texture = ExtResource("3_4nyig")
+albedo_texture = ExtResource("5_n0fub")
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("1_kpluh")]
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -45,7 +49,7 @@ shape = SubResource("BoxShape3D_fgebn")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Map"]
 transform = Transform3D(0.868676, 0, 2.27866, 0, 2.43862, 0, -2.27866, 0, 0.868676, 4.48353, 1.34367, 1.3477)
-material_override = SubResource("StandardMaterial3D_2ilh6")
+material_override = SubResource("StandardMaterial3D_skf78")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/CSGBox3D"]
 
@@ -79,12 +83,15 @@ material_override = SubResource("StandardMaterial3D_h1hr8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/CSGBox3D4/StaticBody3D"]
 shape = SubResource("BoxShape3D_fgebn")
 
-[node name="Player" parent="." instance=ExtResource("5_05avn")]
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="Test_Enemy" parent="Entities" instance=ExtResource("6_3d0r0")]
+transform = Transform3D(-0.512268, 0, -0.858826, 0, 1, 0, 0.858826, 0, -0.512268, 4.27711, 1, 7.02815)
+
+[node name="Test_Enemy2" parent="Entities" instance=ExtResource("6_3d0r0")]
+transform = Transform3D(-0.512268, 0, -0.858826, 0, 1, 0, 0.858826, 0, -0.512268, -10.9716, 1, -2.22646)
+
+[node name="Player" parent="Entities" instance=ExtResource("7_4qup1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 jump_force = 25.0
 gravity_scale = 0.1
-
-[node name="UI" parent="." instance=ExtResource("6_i0l00")]
-
-[node name="Test_Enemy" parent="." instance=ExtResource("7_61cdx")]
-transform = Transform3D(-0.512268, 0, -0.858826, 0, 1, 0, 0.858826, 0, -0.512268, 4.27711, 1, 7.02815)

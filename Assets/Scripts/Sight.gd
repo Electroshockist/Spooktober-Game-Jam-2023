@@ -1,36 +1,44 @@
-@tool #run in editor
-extends Node3D
 class_name Sight
+extends Node3D
 
-signal value_changed
+signal frustum_area_enter(area: Area3D)
+signal frustum_area_exit(area: Area3D)
 
-@export var horizontal_fov:float
-@export var vertical_fov:float
-@export var far_clipping_plane:float
+@export var horizontal_fov:float = 90
+@export var vertical_fov:float = 30
+@export var far_clipping_plane:float=10
 
 var frustum_area: Area3D
-var frustum_model: MeshInstance3D
+var frustum_shape: CollisionShape3D
 
 func _ready():
-	frustum_model = MeshInstance3D.new()
+	#setup frustum data
 	frustum_area = Area3D.new()
+	frustum_shape = CollisionShape3D.new()
 	
-	self.add_child(frustum_model)
+	self.add_child(frustum_area)
+	frustum_area.add_child(frustum_shape)
+	
+	frustum_area.set_collision_mask_value(1, false)
+	frustum_area.set_collision_mask_value(3, true)
 	update_frustum()
+	
+	#create signal functions
+	frustum_area.connect("area_entered", _on_frustum_area_enter)
+	frustum_area.connect("area_exited", _on_frustum_area_exit)
+	self.connect("property_list_changed", update_frustum)
 
-#func _process(delta):
-#	print(Engine.is_editor_hint())
+func _on_frustum_area_enter(area: Area3D):
+	frustum_area_enter.emit(area)
+	
+func _on_frustum_area_exit(area):
+	frustum_area_exit.emit(area)
 
 func update_frustum():
-	
 	var mesh = generate_frustum_mesh(horizontal_fov, vertical_fov, far_clipping_plane)
-	
-	#update display mesh
-	self.frustum_model.set_mesh(mesh)
-	
 	#update area collider
 	var shape = mesh.create_convex_shape(false)
-	#TODO update collision mesh
+	frustum_shape.shape = shape
 
 func generate_frustum_mesh(h_fov:float, v_fov:float, farclip:float):
 	var mesh_data = []

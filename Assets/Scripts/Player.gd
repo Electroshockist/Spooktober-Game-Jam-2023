@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 #Camera controls
 @export var rotation_sensitvity: float = 4

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcb1f6m8mglob"]
+[gd_scene load_steps=6 format=3 uid="uid://bcb1f6m8mglob"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_wjtoo"]
 [ext_resource type="Script" path="res://Assets/Scripts/InputPair.gd" id="2_f4tt1"]
-[ext_resource type="Script" path="res://Assets/Scripts/Team.gd" id="3_kr50o"]
+[ext_resource type="PackedScene" uid="uid://dnx7ef0ueujvv" path="res://Assets/Prefabs/visible_trigger.tscn" id="3_6nv57"]
+[ext_resource type="Script" path="res://Assets/Scripts/Team.gd" id="4_k1nch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q17f3"]
 
@@ -29,6 +30,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
+[node name="VisibleArea" parent="." instance=ExtResource("3_6nv57")]
+
 [node name="Team" type="Node" parent="."]
-script = ExtResource("3_kr50o")
+script = ExtResource("4_k1nch")
 team_name = "Player"
