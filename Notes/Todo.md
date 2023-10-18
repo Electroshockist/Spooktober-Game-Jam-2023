@@ -18,7 +18,6 @@ kanban-plugin: basic
 
 ## Todo
 
-- [ ] #Feature <br>- [ ] add ai to enemy<br>	- [ ] add enemy ai<br>		- [ ] add enemy wandering
 - [ ] #Feature <br>- [ ] grab system<br>	- [ ] allow enemies to grab player<br>	- [ ] allow player to fight to escape grab
 
 
@@ -26,7 +25,7 @@ kanban-plugin: basic
 
 - [ ] #Feature #Eric <br>- [ ] add Sprinting to player
 - [ ] #Feature #Eric <br>- [ ] add Crouching to player
-- [ ] #Feature #Adrian <br>- [x] add "Sight" Component<br>- [ ] get a list of entities in view
+- [ ] #Feature #Adrian <br>- [ ] add ai to enemy<br>	- [ ] add enemy ai<br>		- [ ] add enemy wandering
 
 
 ## Completed
@@ -34,6 +33,7 @@ kanban-plugin: basic
 - [ ] #Feature <br>- [x] add Enemy
 - [ ] #Feature <br>- Character movement
 - [ ] #Feature <br>- first person camera
+- [ ] #Feature #Adrian <br>- [x] add "Sight" Component<br>- [x] get a list of entities in view
 
 
 
