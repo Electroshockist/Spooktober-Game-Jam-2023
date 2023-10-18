@@ -1,30 +1,28 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0apxuy8b62ck"]
+[gd_scene load_steps=12 format=3 uid="uid://d0apxuy8b62ck"]
 
-[ext_resource type="Texture2D" uid="uid://bddm33c1awcjh" path="res://Assets/Meshes/kenney_prototype-textures/PNG/Dark/texture_05.png" id="1_0m7kl"]
-[ext_resource type="Texture2D" uid="uid://c285jcc35rarw" path="res://Assets/Meshes/kenney_prototype-textures/PNG/Red/texture_09.png" id="2_qp0xc"]
-[ext_resource type="Texture2D" uid="uid://bqxhbjlyr2ker" path="res://Assets/Meshes/kenney_prototype-textures/PNG/Green/texture_08.png" id="3_8leqg"]
-[ext_resource type="Texture2D" uid="uid://bm4jlqtj4rr4s" path="res://Assets/Meshes/kenney_prototype-textures/PNG/Orange/texture_08.png" id="4_iscyn"]
+[ext_resource type="Texture2D" uid="uid://bddm33c1awcjh" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Dark/texture_05.png" id="1_ipl6a"]
+[ext_resource type="Texture2D" uid="uid://bqxhbjlyr2ker" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Green/texture_08.png" id="2_aqeiy"]
+[ext_resource type="Texture2D" uid="uid://bm4jlqtj4rr4s" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Orange/texture_08.png" id="3_4nyig"]
 [ext_resource type="PackedScene" uid="uid://bcb1f6m8mglob" path="res://Assets/Prefabs/Player.tscn" id="5_05avn"]
 [ext_resource type="PackedScene" uid="uid://pk504q3fo0vr" path="res://Assets/Scenes/UI.tscn" id="6_i0l00"]
 [ext_resource type="PackedScene" uid="uid://6nrjl78sms0f" path="res://Assets/Prefabs/Test_Enemy.tscn" id="7_61cdx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqnbp"]
-albedo_texture = ExtResource("1_0m7kl")
+albedo_texture = ExtResource("1_ipl6a")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgebn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ilh6"]
-albedo_texture = ExtResource("2_qp0xc")
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsy1i"]
-albedo_texture = ExtResource("3_8leqg")
+albedo_texture = ExtResource("2_aqeiy")
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1hr8"]
-albedo_texture = ExtResource("4_iscyn")
+albedo_texture = ExtResource("3_4nyig")
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
