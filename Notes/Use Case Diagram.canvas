@@ -1,0 +1,32 @@
+{
+	"nodes":[
+		{"id":"a8e8052baba1d28d","type":"group","x":-840,"y":-1520,"width":700,"height":500,"label":"Grab"},
+		{"id":"a80323865c0939d6","type":"group","x":-1640,"y":-1520,"width":400,"height":500,"label":"Legend"},
+		{"id":"6d8c7e60045d1a09","type":"text","text":"Notice","x":-800,"y":-1475,"width":250,"height":60},
+		{"id":"bb61b023c6eb2c53","type":"text","text":"Search","x":-800,"y":-1360,"width":250,"height":60},
+		{"id":"20f46fe647de9aa4","type":"text","text":"Grab","x":-800,"y":-1240,"width":250,"height":60},
+		{"id":"7f573230e771157d","type":"text","text":"[[Enemy]]","x":-1160,"y":-1360,"width":250,"height":60,"color":"6"},
+		{"id":"68c8f8ce1c134622","type":"text","text":"[[Player]]","x":-100,"y":-1240,"width":250,"height":60,"color":"6"},
+		{"id":"4daefd08dad11656","type":"text","text":"","x":-1340,"y":-1480,"width":50,"height":60},
+		{"id":"7621ff6923aab55b","type":"text","text":"","x":-1340,"y":-1360,"width":50,"height":60},
+		{"id":"4e32d03cb6aea149","type":"text","text":"","x":-1340,"y":-1240,"width":50,"height":60},
+		{"id":"c8c2da907e93759c","type":"text","text":"","x":-1340,"y":-1120,"width":50,"height":60},
+		{"id":"7bbc1ac9d30a8976","type":"text","text":"","x":-1600,"y":-1479,"width":50,"height":60},
+		{"id":"b7eb4dc6f9dccc22","type":"text","text":"","x":-1600,"y":-1359,"width":50,"height":60},
+		{"id":"aff9933f38d91503","type":"text","text":"","x":-1600,"y":-1239,"width":50,"height":60},
+		{"id":"da60b3a14069e582","type":"text","text":"","x":-1600,"y":-1119,"width":50,"height":60},
+		{"id":"cfe586044c04cb6f","type":"text","text":"Damage","x":-420,"y":-1300,"width":250,"height":60},
+		{"id":"11d2188a3ac42004","type":"text","text":"Kill","x":-420,"y":-1160,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"9c9784501801cc92","fromNode":"7f573230e771157d","fromSide":"right","toNode":"6d8c7e60045d1a09","toSide":"left","toEnd":"none"},
+		{"id":"d465bf75bfe43424","fromNode":"7f573230e771157d","fromSide":"right","toNode":"bb61b023c6eb2c53","toSide":"left","toEnd":"none"},
+		{"id":"dfa1810779d16156","fromNode":"7f573230e771157d","fromSide":"right","toNode":"20f46fe647de9aa4","toSide":"left","toEnd":"none"},
+		{"id":"1f188d0f91bf4cdd","fromNode":"7bbc1ac9d30a8976","fromSide":"right","toNode":"4daefd08dad11656","toSide":"left","toEnd":"none","label":"Association"},
+		{"id":"d1df8355d4f29211","fromNode":"b7eb4dc6f9dccc22","fromSide":"right","toNode":"7621ff6923aab55b","toSide":"left","toEnd":"none","color":"2","label":"Include"},
+		{"id":"e2da486b329250ad","fromNode":"aff9933f38d91503","fromSide":"right","toNode":"4e32d03cb6aea149","toSide":"left","color":"4","label":"Extend"},
+		{"id":"7cae2404dbb96865","fromNode":"da60b3a14069e582","fromSide":"right","toNode":"c8c2da907e93759c","toSide":"left","toEnd":"none","color":"6","label":"Generalization"},
+		{"id":"81942bd3b4934d71","fromNode":"cfe586044c04cb6f","fromSide":"left","toNode":"20f46fe647de9aa4","toSide":"right","color":"4"},
+		{"id":"1832afba396f3c50","fromNode":"11d2188a3ac42004","fromSide":"left","toNode":"20f46fe647de9aa4","toSide":"right","color":"4"}
+	]
+}
