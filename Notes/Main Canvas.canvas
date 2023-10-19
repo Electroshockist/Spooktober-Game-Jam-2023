@@ -4,11 +4,11 @@
 		{"type":"group","id":"21f373f71fd73abc","x":-660,"y":-2660,"width":1280,"height":860,"label":"Design Docs"},
 		{"type":"group","id":"1446aebde0f2f21d","x":-620,"y":-1420,"width":480,"height":1660,"label":"Shared Functionality"},
 		{"type":"group","id":"b477abe0a642ae4e","x":1240,"y":-1450,"width":440,"height":1660,"label":"Entities"},
-		{"id":"f5ea086d68243b0b","x":677,"y":-1261,"width":250,"height":60,"type":"text","text":""},
+		{"id":"f5ea086d68243b0b","type":"text","text":"","x":677,"y":-1261,"width":250,"height":60},
 		{"type":"file","file":"Entities/Player.md","id":"8a4b4001803b70ba","x":1260,"y":-940,"width":400,"height":400},
 		{"type":"file","file":"Design/Brainstorm.md","id":"15d93258422c1908","x":-640,"y":-2640,"width":720,"height":820},
 		{"type":"file","file":"Design/Game Loop.md","id":"82c6c04b1ee8a194","x":200,"y":-2640,"width":400,"height":400},
-		{"type":"file","file":"Entities/Enemy.md","id":"cae6f7609dbf748f","x":1260,"y":-1440,"width":400,"height":400}
+		{"type":"file","file":"Entities/Enemy/Enemy.md","id":"cae6f7609dbf748f","x":1260,"y":-1440,"width":400,"height":400}
 	],
 	"edges":[
 		{"id":"00e8739fb1fb4694","fromNode":"15d93258422c1908","fromSide":"right","toNode":"82c6c04b1ee8a194","toSide":"left"}
