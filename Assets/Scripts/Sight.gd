@@ -4,12 +4,15 @@ extends Node3D
 signal frustum_area_enter(area: Area3D)
 signal frustum_area_exit(area: Area3D)
 
-@export var horizontal_fov:float = 90
+@export var horizontal_fov:float = 60
 @export var vertical_fov:float = 30
 @export var far_clipping_plane:float=10
 
 var frustum_area: Area3D
 var frustum_shape: CollisionShape3D
+
+func _physics_process(delta):
+	pass
 
 func _ready():
 	#setup frustum data
@@ -40,7 +43,7 @@ func update_frustum():
 	var shape = mesh.create_convex_shape(false)
 	frustum_shape.shape = shape
 
-func generate_frustum_mesh(h_fov:float, v_fov:float, farclip:float):
+func generate_frustum_mesh(h_fov:float, v_fov:float, farclip:float) -> Mesh:
 	var mesh_data = []
 	mesh_data.resize(ArrayMesh.ARRAY_MAX)
 	var h_point = frustum_points(h_fov, farclip)
@@ -65,6 +68,6 @@ func generate_frustum_mesh(h_fov:float, v_fov:float, farclip:float):
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, mesh_data)
 	return mesh
 
-func frustum_points(theta:float, l:float):
+func frustum_points(theta:float, l:float) -> float:
 	var t = deg_to_rad(theta)/2
 	return l*tan(t)

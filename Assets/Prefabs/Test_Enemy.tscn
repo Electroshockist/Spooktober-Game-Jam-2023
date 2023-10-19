@@ -10,7 +10,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke28j"]
 
-[node name="TestEnemy" type="CharacterBody3D"]
+[node name="TestEnemy" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_7x4n5")
 
 [node name="Meshes" type="Node3D" parent="."]
@@ -29,8 +29,14 @@ shape = SubResource("CapsuleShape3D_ke28j")
 [node name="Sight" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.145)
 script = ExtResource("2_4rx3h")
-horizontal_fov = 60.0
 
 [node name="Team" type="Node" parent="."]
 script = ExtResource("3_vc42t")
 team_name = "Enemy"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24554, 0)
+billboard = 2
+text = "wewewewewe"

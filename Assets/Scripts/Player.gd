@@ -1,5 +1,5 @@
-extends CharacterBody3D
 class_name Player
+extends CharacterBody3D
 
 #Camera controls
 @export var rotation_sensitvity: float = 4
@@ -12,14 +12,13 @@ class_name Player
 
 const GRAVITY = -9.81
 
-var horizontal : Input_Pair
-var vertical : Input_Pair
+@onready var horizontal : Input_Pair = $Horizontal
+@onready var vertical : Input_Pair = $Vertical
 
 var input_dir: Vector2 = Vector2.ZERO
 
 func _ready():
-	horizontal = $Horizontal
-	vertical = $Vertical
+	PlayerInfo.id = get_instance_id()
 
 func _input(event):	
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

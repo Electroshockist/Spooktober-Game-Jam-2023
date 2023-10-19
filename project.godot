@@ -15,6 +15,10 @@ run/main_scene="res://Assets/Scenes/Scene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Assets/Art/Textures/icon.svg"
 
+[autoload]
+
+PlayerInfo="*res://Assets/Scripts/player_info.gd"
+
 [dotnet]
 
 project/assembly_name="Spooktober-game-jam-2023"
