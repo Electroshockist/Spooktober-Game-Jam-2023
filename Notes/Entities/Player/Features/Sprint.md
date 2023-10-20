@@ -1,0 +1,1 @@
+Holding the sprint key increases movement speed

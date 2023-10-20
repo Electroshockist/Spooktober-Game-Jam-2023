@@ -16,7 +16,9 @@
 		{"id":"20f46fe647de9aa4","type":"text","text":"Grab","x":-800,"y":-1240,"width":250,"height":60},
 		{"id":"cfe586044c04cb6f","type":"text","text":"Damage","x":-420,"y":-1300,"width":250,"height":60},
 		{"id":"11d2188a3ac42004","type":"text","text":"Kill","x":-420,"y":-1160,"width":250,"height":60},
-		{"id":"68c8f8ce1c134622","type":"text","text":"[[Player]]","x":-40,"y":-1239,"width":250,"height":60,"color":"6"}
+		{"id":"68c8f8ce1c134622","type":"text","text":"[[Player]]","x":-40,"y":-1239,"width":250,"height":60,"color":"6"},
+		{"id":"78f3a10d3d3835f2","type":"text","text":"[[Sneak]]","x":-40,"y":-1100,"width":250,"height":60},
+		{"id":"fc5c5dcee1681776","type":"text","text":"[[Sprint]]","x":320,"y":-1240,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"9c9784501801cc92","fromNode":"7f573230e771157d","fromSide":"right","toNode":"6d8c7e60045d1a09","toSide":"left","toEnd":"none"},
@@ -29,6 +31,8 @@
 		{"id":"81942bd3b4934d71","fromNode":"cfe586044c04cb6f","fromSide":"left","toNode":"20f46fe647de9aa4","toSide":"right","color":"4"},
 		{"id":"1832afba396f3c50","fromNode":"11d2188a3ac42004","fromSide":"left","toNode":"20f46fe647de9aa4","toSide":"right","color":"4"},
 		{"id":"21f9029e232daaf7","fromNode":"68c8f8ce1c134622","fromSide":"left","toNode":"cfe586044c04cb6f","toSide":"right","toEnd":"none"},
-		{"id":"a25287690f034b02","fromNode":"68c8f8ce1c134622","fromSide":"left","toNode":"11d2188a3ac42004","toSide":"right","toEnd":"none"}
+		{"id":"a25287690f034b02","fromNode":"68c8f8ce1c134622","fromSide":"left","toNode":"11d2188a3ac42004","toSide":"right","toEnd":"none"},
+		{"id":"38c7bed862b8df45","fromNode":"68c8f8ce1c134622","fromSide":"bottom","toNode":"78f3a10d3d3835f2","toSide":"top"},
+		{"id":"af134fa3d7c62fd1","fromNode":"68c8f8ce1c134622","fromSide":"right","toNode":"fc5c5dcee1681776","toSide":"left"}
 	]
 }
