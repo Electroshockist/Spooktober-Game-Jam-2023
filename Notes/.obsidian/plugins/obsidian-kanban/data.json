@@ -20,6 +20,16 @@
       "tagKey": "#Adrian",
       "color": "rgba(255, 255, 255, 1)",
       "backgroundColor": "rgba(199, 168, 30, 1)"
+    },
+    {
+      "tagKey": "#Request",
+      "color": "rgba(255, 255, 255, 1)",
+      "backgroundColor": "rgba(197, 88, 11, 0.9)"
+    },
+    {
+      "tagKey": "#Add_Functionality",
+      "color": "rgba(255, 255, 255, 1)",
+      "backgroundColor": "rgba(42, 170, 134, 0.96)"
     }
   ],
   "new-line-trigger": "shift-enter"
