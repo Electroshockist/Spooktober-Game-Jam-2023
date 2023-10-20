@@ -30,6 +30,9 @@ uv1_triplanar = true
 
 [node name="Map" type="Node3D" parent="."]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(-0.999925, 0.00872522, 0.00857589, 0.0109253, 0.321375, 0.946889, 0.00550574, 0.946912, -0.321446, -3.45223, 11.0814, -10.4325)
+
 [node name="Floor" type="CSGBox3D" parent="Map"]
 transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -0.5, 0)
 material_override = SubResource("StandardMaterial3D_4s1tw")
@@ -39,9 +42,6 @@ disable_mode = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor/StaticBody3D"]
 shape = SubResource("BoxShape3D_d66n4")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
-transform = Transform3D(-0.999925, 0.00872522, 0.00857588, 0.0109253, 0.321375, 0.946889, 0.00550574, 0.946912, -0.321446, -3.45223, 11.0814, -10.4325)
 
 [node name="Objects" type="Node" parent="Map"]
 

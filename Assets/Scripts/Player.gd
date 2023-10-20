@@ -8,6 +8,8 @@ extends CharacterBody3D
 
 #Movement variables
 @export var speed : float = 10
+@export var crouch_speed_reduction: float = -5
+@export var sprint_speed_amplification: float = 2
 @export var jump_force : float = 150
 @export var gravity_scale : float = 1
 @onready var GRAVITY = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -15,6 +17,9 @@ extends CharacterBody3D
 #Input data
 @onready var horizontal : Input_Pair = Input_Pair.new("Move Right", "Move Left")
 @onready var vertical : Input_Pair = Input_Pair.new("Move Forward", "Move Backward")
+
+#private variables
+var speed_effects = {}
 
 var input_dir: Vector2 = Vector2.ZERO
 
@@ -27,21 +32,39 @@ func _input(event):
 		
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x - rot.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
 		rotate_y(rot.y)
-
-func _physics_process(_delta):
+	
+	#crouching dragon	
+	if event.is_action_pressed("Crouch"):
+		speed_effects["crouch_speed_reduction"] = crouch_speed_reduction
+	elif event.is_action_released("Crouch"):
+		speed_effects.erase("crouch_speed_reduction")
+	
+	#sprinting tiger
+	if !Input.is_action_pressed("Crouch"):
+		if event.is_action_pressed("Sprint"):
+			speed_effects["sprint_speed_amplification"] = sprint_speed_amplification
+	if event.is_action_released("Sprint"):
+		speed_effects.erase("sprint_speed_amplification")
+	
+func _physics_process(_delta):	
 	input_dir = Vector2(
 		-horizontal.get_axis(),
 		vertical.get_axis()
 	)
 	input_dir = input_dir.normalized() if input_dir.length() > 1 else  input_dir
 	
-	var final_input = Vector3(input_dir.x, 0, input_dir.y) * speed * transform.basis.inverse()
+	var current_speed: float = speed;
+
+	for effect in speed_effects:
+		current_speed += effect.
 	
+	var final_input = Vector3(input_dir.x, 0, input_dir.y) * current_speed * transform.basis.inverse()
+		
 	velocity = final_input + Vector3(0, velocity.y ,0)
 	if !is_on_floor():
 		velocity.y -= GRAVITY * gravity_scale
 		
 	elif(Input.is_action_just_pressed("Jump")):
 		velocity.y += jump_force
-
+		
 	move_and_slide()
