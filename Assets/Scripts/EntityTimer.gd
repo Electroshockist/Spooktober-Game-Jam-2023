@@ -19,7 +19,6 @@ enum COUNTING{
 @export var wait_time: float = 1
 @export var one_shot: bool = true
 @export var autostart: bool = true
-var paused: bool = false
 var running: bool = false
 var stopped: bool = false
 var time_left: float
@@ -46,7 +45,7 @@ func _process(delta: float):
 		_update_timer(delta)
 
 func _update_timer(delta: float):
-	if running and not paused:
+	if running and time_scale != 0:
 		time_left -= delta * time_scale
 		time_left = clamp(time_left, 0, wait_time)
 		if time_left == 0:
@@ -68,8 +67,7 @@ func count_down(time_sec:float = -1):
 func count_up(time_sec:float = -1):
 	start(time_sec, COUNTING.UP)
 
-func start(time_sec:float = -1, dir:COUNTING = COUNTING.SAME):
-	#leave 
+func start(time_sec:float = -1, dir:COUNTING = COUNTING.SAME): 
 	if time_sec > 0: wait_time = time_sec
 	set_count_direction(dir)
 	
@@ -78,7 +76,6 @@ func start(time_sec:float = -1, dir:COUNTING = COUNTING.SAME):
 	else:
 		time_left = 0
 	
-	paused = false
 	running = true
 	stopped = false
 

@@ -45,12 +45,10 @@ func _physics_process(delta):
 
 #Signal Functions
 func _on_view_enter(area: Area3D):
-	#assumes the area is a direct child of the "master" object
-	# and that the Team component has its default name
-	var area_team = area.get_parent().find_child("Team")
+	# assumes that the Team component has its default name
+	var area_team = area.get_owner().find_child("Team")
 	
-	#assumes target direct parent of area
-	var target_id:int = area.get_parent().get_instance_id()
+	var target_id:int = area.get_owner().get_instance_id()
 	
 	if globals.player_id == target_id:
 		if debug: print("Entity[", self.get_instance_id(), "]: Player entered view")
@@ -65,8 +63,7 @@ func _on_view_enter(area: Area3D):
 		pass #todo
 
 func _on_view_exit(area: Area3D):
-	#assumes master node is direct parent
-	var target_id = area.get_parent().get_instance_id()
+	var target_id = area.get_owner().get_instance_id()
 	
 	if target_id == globals.player_id:
 		player_in_view = false
