@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bx4twx15ayebq"]
+[gd_scene load_steps=13 format=3 uid="uid://bx4twx15ayebq"]
 
 [ext_resource type="Texture2D" uid="uid://bddm33c1awcjh" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Dark/texture_05.png" id="1_qsggn"]
 [ext_resource type="Texture2D" uid="uid://c285jcc35rarw" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Red/texture_09.png" id="2_u7v8f"]
 [ext_resource type="Texture2D" uid="uid://bqxhbjlyr2ker" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Green/texture_08.png" id="3_mc2ae"]
 [ext_resource type="Texture2D" uid="uid://bm4jlqtj4rr4s" path="res://Assets/Art/Textures/kenney_prototype-textures/PNG/Orange/texture_08.png" id="4_jied7"]
 [ext_resource type="PackedScene" uid="uid://bcb1f6m8mglob" path="res://Assets/Prefabs/player.tscn" id="6_12ran"]
+[ext_resource type="PackedScene" uid="uid://mmeolp64ush1" path="res://Assets/Prefabs/Test_Enemy.tscn" id="6_cp6i6"]
 [ext_resource type="PackedScene" uid="uid://pk504q3fo0vr" path="res://Assets/Prefabs/UI.tscn" id="7_pof8x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s1tw"]
@@ -96,5 +97,8 @@ material_override = SubResource("StandardMaterial3D_ebwxe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 51.0573, 0)
 jump_force = 25.0
 gravity_scale = 0.1
+
+[node name="TestEnemy" parent="." instance=ExtResource("6_cp6i6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2587, 1, 6.54553)
 
 [node name="UI" parent="." instance=ExtResource("7_pof8x")]

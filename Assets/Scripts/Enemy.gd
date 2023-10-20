@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody3D
 
-const debug:bool = true
+@export var debug:bool = false
 
 # State Management
 @export var init_state: State = State.GUARD

@@ -43,7 +43,7 @@ func _input(event):
 	if !Input.is_action_pressed("Crouch"):
 		if event.is_action_pressed("Sprint"):
 			speed_effects["sprint_speed_amplification"] = sprint_speed_amplification
-	if event.is_action_released("Sprint"):
+	if event.is_action_released("Sprint") or Input.is_action_pressed("Crouch"):
 		speed_effects.erase("sprint_speed_amplification")
 	
 func _physics_process(_delta):	
@@ -56,7 +56,7 @@ func _physics_process(_delta):
 	var current_speed: float = speed;
 
 	for effect in speed_effects:
-		current_speed += effect.
+		current_speed += speed_effects[effect]
 	
 	var final_input = Vector3(input_dir.x, 0, input_dir.y) * current_speed * transform.basis.inverse()
 		
