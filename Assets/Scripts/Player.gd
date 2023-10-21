@@ -10,8 +10,8 @@ extends CharacterBody3D
 @export var speed : float = 10
 
 @export var crouch_height_reduction: float = .5
-@export var crouch_speed_reduction: float = -5
-@export var sprint_speed_amplification: float = 2
+@export var crouch_speed_reduction: float = 0.7
+@export var sprint_speed_amplification: float = 1.3
 
 
 @export var jump_force : float = 25
@@ -66,15 +66,15 @@ func _physics_process(_delta):
 	var current_speed: float = speed;
 
 	for effect in speed_effects:
-		current_speed += speed_effects[effect]
+		current_speed *= speed_effects[effect]
 	
 	var final_input = Vector3(input_dir.x, 0, input_dir.y) * current_speed * transform.basis.inverse()
-		
+	
 	velocity = final_input + Vector3(0, velocity.y ,0)
 	if !is_on_floor():
 		velocity.y -= GRAVITY * gravity_scale
-		
+	
 	elif(Input.is_action_just_pressed("Jump")):
 		velocity.y += jump_force
-		
+	
 	move_and_slide()

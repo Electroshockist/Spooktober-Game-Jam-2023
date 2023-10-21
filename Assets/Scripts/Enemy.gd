@@ -22,7 +22,7 @@ var can_see: bool = false
 
 #Targeting
 @onready var notice_ui: Label3D = $Label3D
-const notice_speed:float = 5
+@export var notice_speed:float = 2.5
 var targets:Array = []
 var noticed_targets:Array = []
 var notice_timers:Dictionary = {}
