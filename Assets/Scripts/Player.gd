@@ -8,8 +8,12 @@ extends CharacterBody3D
 
 #Movement variables
 @export var speed : float = 10
+
+@export var crouch_height_reduction: float = .5
 @export var crouch_speed_reduction: float = -5
 @export var sprint_speed_amplification: float = 2
+
+
 @export var jump_force : float = 150
 @export var gravity_scale : float = 1
 @onready var GRAVITY = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -33,11 +37,17 @@ func _input(event):
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x - rot.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
 		rotate_y(rot.y)
 	
-	#crouching dragon	
+	#crouching dragon
+	#todo turn into input pair
+	
 	if event.is_action_pressed("Crouch"):
 		speed_effects["crouch_speed_reduction"] = crouch_speed_reduction
-	elif event.is_action_released("Crouch"):
+		$Camera3D.position.y -=crouch_height_reduction
+		$CollisionShape3D.shape.height -=crouch_height_reduction
+	elif event.is_action_released("Crouch"):# and !is_on_ceiling():#bug: can double cruch while under something
 		speed_effects.erase("crouch_speed_reduction")
+		$Camera3D.position.y += crouch_height_reduction		
+		$CollisionShape3D.shape.height += crouch_height_reduction
 	
 	#sprinting tiger
 	if !Input.is_action_pressed("Crouch"):
