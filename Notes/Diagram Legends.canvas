@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"92cf60cc4a762500","type":"group","x":-380,"y":-460,"width":300,"height":180,"label":"State Diagram Legend"},
+		{"id":"404de11bf80b3882","type":"text","text":"State","x":-360,"y":-440,"width":250,"height":60,"color":"6"},
+		{"id":"f83a16f798ae79dd","type":"text","text":"Condition","x":-360,"y":-360,"width":250,"height":60,"color":"3"}
+	],
+	"edges":[]
+}

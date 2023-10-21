@@ -1,0 +1,23 @@
+{
+	"nodes":[
+		{"id":"a6f8fb2bfb14e15c","type":"group","x":-580,"y":-740,"width":340,"height":420,"label":"Legend"},
+		{"id":"b813e54d44c300ec","type":"text","text":"Input Direction ","x":685,"y":-600,"width":250,"height":60,"color":"4"},
+		{"id":"850182d95ef4078c","type":"text","text":"Stop Walking\n","x":685,"y":-170,"width":250,"height":60,"color":"2"},
+		{"id":"00003a923dc17359","type":"text","text":"Walk","x":480,"y":-381,"width":250,"height":60,"color":"2"},
+		{"id":"614b3f5f2553c925","type":"text","text":"Actor","x":-540,"y":-710,"width":250,"height":60,"color":"4"},
+		{"id":"653df1cf71f0de47","type":"text","text":"Result","x":-540,"y":-560,"width":250,"height":60,"color":"2"},
+		{"id":"15dab6c896b74fb5","type":"text","text":"Result","x":-540,"y":-420,"width":250,"height":60,"color":"2"},
+		{"id":"87bbc8d90d6161e9","x":-401,"y":-681,"width":250,"height":60,"type":"text","text":""},
+		{"id":"cd7c3e4557cdf3fa","type":"text","text":"Sprint Button","x":-151,"y":-80,"width":250,"height":60,"color":"4"},
+		{"id":"b05d35e2a08d9370","type":"text","text":"Crouch Button","x":-180,"y":-381,"width":250,"height":60,"color":"4"},
+		{"id":"f95d55e0358a1e40","x":180,"y":-260,"width":250,"height":60,"type":"text","text":"Crouch"}
+	],
+	"edges":[
+		{"id":"16ffda7b2e86fa72","fromNode":"b813e54d44c300ec","fromSide":"bottom","toNode":"00003a923dc17359","toSide":"top","color":"6","label":"Pressed"},
+		{"id":"06527abb69f53d24","fromNode":"b813e54d44c300ec","fromSide":"bottom","toNode":"850182d95ef4078c","toSide":"top","color":"6","label":"Released"},
+		{"id":"eba716f1a6f2eef3","fromNode":"00003a923dc17359","fromSide":"bottom","toNode":"850182d95ef4078c","toSide":"left","color":"3"},
+		{"id":"6ea91550aaa7e934","fromNode":"614b3f5f2553c925","fromSide":"bottom","toNode":"653df1cf71f0de47","toSide":"top","color":"6","label":"Action"},
+		{"id":"a98030e0f0a7e240","fromNode":"653df1cf71f0de47","fromSide":"bottom","toNode":"15dab6c896b74fb5","toSide":"top","color":"3","label":"Continuation"},
+		{"id":"a6edbeae75da3318","fromNode":"b05d35e2a08d9370","fromSide":"right","toNode":"f95d55e0358a1e40","toSide":"left"}
+	]
+}
