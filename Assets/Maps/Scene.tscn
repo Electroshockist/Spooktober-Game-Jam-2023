@@ -104,8 +104,6 @@ shape = SubResource("BoxShape3D_d66n4")
 
 [node name="Player" parent="." instance=ExtResource("6_12ran")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 51.0573, 0)
-jump_force = 25.0
-gravity_scale = 0.1
 
 [node name="TestEnemy" parent="." instance=ExtResource("6_cp6i6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2587, 1, 6.54553)

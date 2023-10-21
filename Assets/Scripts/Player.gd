@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 #Camera controls
 @export var rotation_sensitvity: float = 4
-@export var min_pitch: = -30
+@export var min_pitch: = -85
 @export var max_pitch = 85
 
 #Movement variables
@@ -14,9 +14,9 @@ extends CharacterBody3D
 @export var sprint_speed_amplification: float = 2
 
 
-@export var jump_force : float = 150
-@export var gravity_scale : float = 1
-@onready var GRAVITY = ProjectSettings.get_setting("physics/3d/default_gravity")
+@export var jump_force : float = 25
+@export var gravity_scale : float = 0.1
+@onready var GRAVITY : float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 #Input data
 @onready var horizontal : Input_Pair = Input_Pair.new("Move Right", "Move Left")

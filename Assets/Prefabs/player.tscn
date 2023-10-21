@@ -7,9 +7,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q17f3"]
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259757, 1.00347, -0.000838757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_wjtoo")
-min_pitch = -85
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_q17f3")
