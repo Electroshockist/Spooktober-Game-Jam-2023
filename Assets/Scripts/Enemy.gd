@@ -56,7 +56,7 @@ func _on_view_enter(area: Area3D):
 	
 	if not team.same_team(area_team):
 		if targets.has(target_id):
-			notice_timers[target_id].set_count_direction(EntityTimer.COUNTING.DOWN)
+			notice_timers[target_id].set_count_direction(EntityTimer.Direction.DOWN)
 		else:
 			add_target(target_id)
 	else: # same team
@@ -70,7 +70,7 @@ func _on_view_exit(area: Area3D):
 	
 	if targets.has(target_id):
 		if not notice_timers[target_id].stopped:
-			notice_timers[target_id].set_count_direction(EntityTimer.COUNTING.UP)
+			notice_timers[target_id].set_count_direction(EntityTimer.Direction.UP)
 		else:
 			notice_timers[target_id].count_up()
 
@@ -108,7 +108,7 @@ func init_sight():
 #Targeting functions
 func add_target(id:int):
 	targets.push_back(id)
-	var notice_timer:EntityTimer = EntityTimer.new(id, notice_speed, true, true)
+	var notice_timer:EntityTimer = EntityTimer.new(id, notice_speed, EntityTimer.RepeatMode.ONE_SHOT, true)
 	timer_container.add_child(notice_timer)
 	notice_timer.connect("timeout", _alert_on)
 	notice_timer.connect("refill", _forget_target)

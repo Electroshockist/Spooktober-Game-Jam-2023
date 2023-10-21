@@ -121,5 +121,3 @@ transform = Transform3D(-0.512268, 0, -0.858826, 0, 1, 0, 0.858826, 0, -0.512268
 
 [node name="Player" parent="Entities" instance=ExtResource("7_lwqm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.924478, 0)
-jump_force = 25.0
-gravity_scale = 0.1

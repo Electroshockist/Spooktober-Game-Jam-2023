@@ -1,40 +1,57 @@
 class_name EntityTimer
 extends Node
 
-signal timeout(id:int)
-signal refill(id:int)
+signal timeout(value)
+signal refill(value)
 
 enum TimerProcessCallback{
 	TIMER_PROCESS_PHYSICS,
 	TIMER_PROCESS_IDLE
 }
 
-enum COUNTING{
+enum Direction{
 	UP = -1,
-	SAME = 0,
-	DOWN = 1
+	DOWN = 1,
+	SAME,
+	OPPOSITE
 }
+
+enum RepeatMode{
+	WRAP,
+	ONE_SHOT,
+	PING_PONG
+}
+
+@export var debug = false
 
 @export var process_callback = TimerProcessCallback.TIMER_PROCESS_IDLE
 @export var wait_time: float = 1
-@export var one_shot: bool = true
-@export var autostart: bool = true
+@export var repeat_mode: RepeatMode = RepeatMode.WRAP
+@export var autostart: bool = false
+@export var start_dir:Direction = Direction.DOWN
+
+# i wanted the value to be of ambiguous type so you can
+# give the timer any value to hold on to. It really
+# should be exposed in the editor but if you want to
+# expose this you have to hint its type
+var value = null
+
 var running: bool = false
 var stopped: bool = false
 var time_left: float
-var time_scale: float = COUNTING.DOWN
+var time_scale: float = 1
 
-var id:int
-
-func _enter_tree():
+func _ready():
+	set_count_direction(start_dir)
 	if autostart:
-		count_down()
+		start()
 
-func _init(_id:int, _wait_time:float = 1, _one_shot:bool = true, _autostart:bool = true):
-	id = _id
+func _init(_value = value, _wait_time:float = wait_time, _repeat_mode:RepeatMode = repeat_mode, _autostart:bool = autostart, _start_dir:Direction = start_dir):
+	value = _value
 	wait_time = _wait_time
-	one_shot = _one_shot
+	repeat_mode = _repeat_mode
 	autostart = _autostart
+	start_dir = _start_dir
 
 func _physics_process(delta: float):
 	if (process_callback == TimerProcessCallback.TIMER_PROCESS_PHYSICS):
@@ -46,28 +63,44 @@ func _process(delta: float):
 
 func _update_timer(delta: float):
 	if running and time_scale != 0:
+		stopped = false
 		time_left -= delta * time_scale
 		time_left = clamp(time_left, 0, wait_time)
+		
 		if time_left == 0:
 			stop()
 			stopped = true
-			timeout.emit(id)
+			timeout.emit(value)
+			if debug: print("timer timeout")
+			repeat()
 		elif time_left == wait_time:
 			stop()
 			stopped = true
-			refill.emit(id)
+			refill.emit(value)
+			if debug: print("timer refill")
+			repeat()
 
-func set_count_direction(dir:COUNTING):
-	if dir != COUNTING.SAME:
-		time_scale = dir * absf(time_scale)
+func repeat():
+	match repeat_mode:
+		RepeatMode.WRAP:
+			start(-1, Direction.SAME)
+		RepeatMode.PING_PONG:
+			start(-1, Direction.OPPOSITE)
+
+func set_count_direction(dir:Direction):
+	if dir != Direction.SAME:
+		if dir == Direction.OPPOSITE:
+			time_scale *= -1
+		else:
+			time_scale = dir * absf(time_scale)
 
 func count_down(time_sec:float = -1):
-	start(time_sec, COUNTING.DOWN)
+	start(time_sec, Direction.DOWN)
 
 func count_up(time_sec:float = -1):
-	start(time_sec, COUNTING.UP)
+	start(time_sec, Direction.UP)
 
-func start(time_sec:float = -1, dir:COUNTING = COUNTING.SAME): 
+func start(time_sec:float = -1, dir:Direction = Direction.SAME): 
 	if time_sec > 0: wait_time = time_sec
 	set_count_direction(dir)
 	
@@ -77,7 +110,7 @@ func start(time_sec:float = -1, dir:COUNTING = COUNTING.SAME):
 		time_left = 0
 	
 	running = true
-	stopped = false
+	if debug: prints("starting timer", name)
 
 func stop():
 	running = false
