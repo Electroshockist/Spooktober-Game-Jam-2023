@@ -94,7 +94,7 @@ transform = Transform3D(1, 1.86265e-09, -5.13392e-08, -4.65661e-09, 1, 7.45058e-
 material_override = SubResource("StandardMaterial3D_ebwxe")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Map/Objects"]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 6.00295, 2, 7.06267)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 6, 2.25, 7.063)
 material_override = SubResource("StandardMaterial3D_4hma5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Objects/CSGBox3D5"]

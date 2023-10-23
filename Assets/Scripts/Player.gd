@@ -23,9 +23,18 @@ extends CharacterBody3D
 @onready var vertical : Input_Pair = Input_Pair.new("Move Forward", "Move Backward")
 
 #private variables
-var speed_effects = {}
+var _input_dir: Vector2 = Vector2.ZERO
 
-var input_dir: Vector2 = Vector2.ZERO
+var _current_speed: float = speed
+
+var _is_on_ceiling: bool = false
+
+enum {
+	NONE,
+	CROUCH,
+	SPRINT
+} 
+var _motion_type = NONE
 
 func _ready():
 	globals.player_id = get_instance_id()
@@ -37,38 +46,20 @@ func _input(event):
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x - rot.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
 		rotate_y(rot.y)
 	
-	#crouching dragon
-	#todo turn into input pair
+	_handle_movement_modifiers(event)
 	
-	if event.is_action_pressed("Crouch"):
-		speed_effects["crouch_speed_reduction"] = crouch_speed_reduction
-		$Camera3D.position.y -=crouch_height_reduction
-		$CollisionShape3D.shape.height -=crouch_height_reduction
-	elif event.is_action_released("Crouch"):# and !is_on_ceiling():#bug: can double cruch while under something
-		speed_effects.erase("crouch_speed_reduction")
-		$Camera3D.position.y += crouch_height_reduction		
-		$CollisionShape3D.shape.height += crouch_height_reduction
+		
+func _physics_process(_delta):
+		
+	if(_motion_type == CROUCH and _is_on_ceiling and !Input.is_action_pressed("Crouch")):
+		_on_crouch_deactivate()
+		if Input.is_action_pressed("Sprint"):
+			_on_sprint_activte()
 	
-	#sprinting tiger
-	if !Input.is_action_pressed("Crouch"):
-		if event.is_action_pressed("Sprint"):
-			speed_effects["sprint_speed_amplification"] = sprint_speed_amplification
-	if event.is_action_released("Sprint") or Input.is_action_pressed("Crouch"):
-		speed_effects.erase("sprint_speed_amplification")
-	
-func _physics_process(_delta):	
-	input_dir = Vector2(
-		-horizontal.get_axis(),
-		vertical.get_axis()
-	)
+	var input_dir = Vector2(-horizontal.get_axis(),vertical.get_axis())
 	input_dir = input_dir.normalized() if input_dir.length() > 1 else  input_dir
 	
-	var current_speed: float = speed;
-
-	for effect in speed_effects:
-		current_speed *= speed_effects[effect]
-	
-	var final_input = Vector3(input_dir.x, 0, input_dir.y) * current_speed * transform.basis.inverse()
+	var final_input = Vector3(input_dir.x, 0, input_dir.y) * _current_speed * transform.basis.inverse()
 	
 	velocity = final_input + Vector3(0, velocity.y ,0)
 	if !is_on_floor():
@@ -77,4 +68,70 @@ func _physics_process(_delta):
 	elif(Input.is_action_just_pressed("Jump")):
 		velocity.y += jump_force
 	
+	print(_current_speed)
 	move_and_slide()
+
+
+func _on_crouch_activate():
+	_motion_type = CROUCH
+	
+	$Camera3D.position.y -=crouch_height_reduction
+	$CollisionShape3D.shape.height -=crouch_height_reduction
+	$VisibleArea/CollisionShape3D.shape.height -= crouch_height_reduction		
+	
+func _on_crouch_deactivate():
+	$Camera3D.position.y += crouch_height_reduction
+	$CollisionShape3D.shape.height += crouch_height_reduction
+	$VisibleArea/CollisionShape3D.shape.height += crouch_height_reduction 
+	_motion_type = NONE
+
+func _on_sprint_activte():
+	_motion_type = SPRINT
+	
+func _on_sprint_deactivate():
+	_motion_type = NONE
+			
+func _handle_movement_modifiers(event):
+	##todo turn into generalized stack			
+	#crouching dragon
+	if event.is_action_pressed("Crouch") and !_is_on_ceiling:
+		if _motion_type == SPRINT:
+			_on_sprint_deactivate()
+		_on_crouch_activate()
+		
+	elif event.is_action_released("Crouch") and !_is_on_ceiling:
+		_on_crouch_deactivate()
+		if Input.is_action_pressed("Sprint"):
+			_on_sprint_activte()
+		
+	
+	#sprinting tiger
+	if event.is_action_pressed("Sprint"):
+		if(_motion_type == CROUCH):
+			if(!_is_on_ceiling):
+				_on_crouch_deactivate()
+				_on_sprint_activte()
+		else:
+			_on_sprint_activte()
+
+	if event.is_action_released("Sprint"):
+		_on_sprint_deactivate()
+		
+		if Input.is_action_pressed("Crouch"):
+			_on_crouch_activate()
+		
+	match _motion_type:
+		NONE:
+			_current_speed = speed
+		CROUCH:
+			_current_speed = speed * crouch_speed_reduction
+		SPRINT:
+			_current_speed = speed * sprint_speed_amplification
+
+
+func _on_head_collision_detector_area_entered(area):
+	_is_on_ceiling = true
+
+
+func _on_head_collision_detector_area_exited(area):
+	_is_on_ceiling = false

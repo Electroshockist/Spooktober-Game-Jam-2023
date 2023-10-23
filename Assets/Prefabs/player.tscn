@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcb1f6m8mglob"]
+[gd_scene load_steps=6 format=3 uid="uid://bcb1f6m8mglob"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_wjtoo"]
 [ext_resource type="PackedScene" uid="uid://dnx7ef0ueujvv" path="res://Assets/Prefabs/visible_trigger.tscn" id="3_6nv57"]
@@ -6,12 +6,20 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q17f3"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wkgkd"]
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_wjtoo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_q17f3")
+
+[node name="Head Collision Detector" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head Collision Detector"]
+transform = Transform3D(0.99, 0, 0, 0, 0.99, 0, 0, 0, 0.99, 0, 0.52, 0)
+shape = SubResource("SphereShape3D_wkgkd")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.75, 0)
@@ -23,3 +31,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.7
 [node name="Team" type="Node" parent="."]
 script = ExtResource("4_k1nch")
 team_name = "Player"
+
+[connection signal="area_entered" from="Head Collision Detector" to="." method="_on_head_collision_detector_area_entered"]
+[connection signal="area_exited" from="Head Collision Detector" to="." method="_on_head_collision_detector_area_exited"]
