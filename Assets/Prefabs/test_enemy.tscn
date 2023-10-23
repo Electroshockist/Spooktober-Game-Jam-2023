@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mmeolp64ush1"]
+[gd_scene load_steps=8 format=3 uid="uid://mmeolp64ush1"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/TestEnemy.gd" id="1_7x4n5"]
 [ext_resource type="Script" path="res://Assets/Scripts/Sight.gd" id="2_4rx3h"]
@@ -6,37 +6,65 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nqsr2"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdj63"]
+albedo_color = Color(1, 0, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_rk8r5"]
+material = SubResource("StandardMaterial3D_sdj63")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke28j"]
 
-[node name="TestEnemy" type="CharacterBody3D" groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="TestEnemy" type="CharacterBody3D"]
 script = ExtResource("1_7x4n5")
 
-[node name="Meshes" type="Node3D" parent="."]
+[node name="meshes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Capsule" type="MeshInstance3D" parent="Meshes"]
+[node name="Capsule" type="MeshInstance3D" parent="meshes"]
 mesh = SubResource("CapsuleMesh_nqsr2")
 skeleton = NodePath("../..")
 
-[node name="Cube" type="MeshInstance3D" parent="Meshes"]
+[node name="Cube" type="MeshInstance3D" parent="meshes"]
 transform = Transform3D(0.317983, 0, 0, 0, 0.271243, 0, 0, 0, 1, 0, 0.525696, 0.384107)
 mesh = SubResource("BoxMesh_rk8r5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ke28j")
 
 [node name="Sight" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.145)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6611, 0.478426)
 script = ExtResource("2_4rx3h")
+
+[node name="indicator" type="Marker3D" parent="Sight"]
 
 [node name="Team" type="Node" parent="."]
 script = ExtResource("3_vc42t")
 team_name = "Enemy"
 
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30103, 0)
+pixel_size = 0.0025
+billboard = 1
+no_depth_test = true
+fixed_size = true
+outline_size = 5
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24554, 0)
-billboard = 2
+[node name="pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="move meshes" type="RemoteTransform3D" parent="pivot"]
+remote_path = NodePath("../../meshes")
+
+[node name="move collision shape" type="RemoteTransform3D" parent="pivot"]
+remote_path = NodePath("../../CollisionShape3D")
+
+[node name="move eyes" type="RemoteTransform3D" parent="pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661097, 0.478426)
+remote_path = NodePath("../../Sight")
+
+[node name="move alert indicator" type="RemoteTransform3D" parent="pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30103, 0)
+remote_path = NodePath("../../Label3D")

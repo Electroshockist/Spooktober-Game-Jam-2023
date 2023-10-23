@@ -11,9 +11,6 @@ signal frustum_area_exit(area: Area3D)
 var frustum_area: Area3D
 var frustum_shape: CollisionShape3D
 
-func _physics_process(delta):
-	pass
-
 func _ready():
 	#setup frustum data
 	frustum_area = Area3D.new()

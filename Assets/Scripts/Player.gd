@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
+@export var debug:bool = false
+
 #Camera controls
 @export var rotation_sensitvity: float = 4
 @export var min_pitch: = -85
@@ -67,6 +69,8 @@ func _physics_process(_delta):
 	
 	elif(Input.is_action_just_pressed("Jump")):
 		velocity.y += jump_force
+	
+	if debug: print(_current_speed)
 	move_and_slide()
 
 

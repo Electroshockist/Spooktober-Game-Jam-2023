@@ -9,10 +9,16 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_wkgkd"]
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_wjtoo")
 
+[node name="meshes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="meshes"]
+skeleton = NodePath("../..")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_q17f3")
 
 [node name="Head Collision Detector" type="Area3D" parent="."]
@@ -22,11 +28,10 @@ transform = Transform3D(0.99, 0, 0, 0, 0.99, 0, 0, 0, 0.99, 0, 0.52, 0)
 shape = SubResource("SphereShape3D_wkgkd")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.75, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 1.75, 0)
 
 [node name="VisibleArea" parent="." instance=ExtResource("3_6nv57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Team" type="Node" parent="."]
 script = ExtResource("4_k1nch")
@@ -34,3 +39,23 @@ team_name = "Player"
 
 [connection signal="area_entered" from="Head Collision Detector" to="." method="_on_head_collision_detector_area_entered"]
 [connection signal="area_exited" from="Head Collision Detector" to="." method="_on_head_collision_detector_area_exited"]
+
+[node name="pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="move camera" type="RemoteTransform3D" parent="pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+remote_path = NodePath("../../Camera3D")
+update_rotation = false
+
+[node name="move meshes" type="RemoteTransform3D" parent="pivot"]
+remote_path = NodePath("../../meshes")
+update_rotation = false
+
+[node name="move collision shape" type="RemoteTransform3D" parent="pivot"]
+remote_path = NodePath("../../CollisionShape3D")
+update_rotation = false
+
+[node name="move visible area" type="RemoteTransform3D" parent="pivot"]
+remote_path = NodePath("../../VisibleArea")
+update_rotation = false

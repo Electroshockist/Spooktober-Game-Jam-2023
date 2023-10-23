@@ -15,7 +15,7 @@ kanban-plugin: basic
 ## Backburner
 
 - [ ] #Bug<br>Player jiggles when walking into walls
-- [ ] #Bug<br>Player has no momentum in the air
+- [ ] #Add_Functionality <br>Player has no momentum in the air
 - [ ] #Feature <br>- [ ] add step functionality to Enemy ai
 - [ ] #Feature <br>- [ ] add separate vertical and horizontal sensitivities to player
 - [ ] #Feature <br>Splash Screen
@@ -27,7 +27,7 @@ kanban-plugin: basic
 - [ ] #Feature <br>- [ ] grab system<br>	- [ ] allow enemies to grab player<br>	- [ ] allow player to fight to escape grab
 - [ ] #Add_Functionality <br>- [ ] add step functionality to player
 - [ ] #Add_Functionality <br>- [ ] add step functionality to enemy
-- [ ] #Bug<br>- [ ] player locomotion with contoller stuttery
+- [ ] #Bug<br>- [ ] player sometimes gets stuck on the ground and slides strangely (havent figured out how to reproduce) might have something to do with the controller
 - [ ] #Feature <br>Create Levels
 - [ ] #Feature <br>Main Menu
 - [ ] #Add_Functionality <br>Variable notice speeds
@@ -36,6 +36,7 @@ kanban-plugin: basic
 ## In Progress
 
 - [ ] #Add_Functionality #Adrian <br>- [ ] add ai to enemy<br>	- [ ] add enemy ai<br>		- [ ] add enemy wandering
+- [ ] 
 - [ ] #Add_Functionality #Adrian <br>- [ ] make base enemy respond to sight
 - [ ] #Add_Functionality #Eric <br>Tall Grass that hides player
 - [ ] #Add_Functionality #Eric <br>add entity models
@@ -50,7 +51,8 @@ kanban-plugin: basic
 - [ ] #Feature #Eric <br>- [x] first person camera
 - [ ] #Feature #Adrian <br>- [x] add "Sight" Component<br>- [x] get a list of entities in view
 - [ ] #Request #Adrian <br>- [x] refactor player input pair system (it doesnt seem like you need there to be a node for this)
-- [ ] #Feature <br>- [x] add custom timers with timescale
+- [ ] #Feature #Adrian <br>- [x] reimplement default timers with more features
+- [ ] #Feature #Adrian <br>- [x] add custom timers with timescale
 
 
 
