@@ -67,8 +67,6 @@ func _physics_process(_delta):
 	
 	elif(Input.is_action_just_pressed("Jump")):
 		velocity.y += jump_force
-	
-	print(_current_speed)
 	move_and_slide()
 
 
