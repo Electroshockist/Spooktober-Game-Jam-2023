@@ -1,8 +1,25 @@
 {
 	"nodes":[
+		{"id":"027be6ecd1f8bdb5","type":"group","x":-40,"y":-460,"width":700,"height":500,"label":"Use Case Diagram Legend"},
 		{"id":"92cf60cc4a762500","type":"group","x":-380,"y":-460,"width":300,"height":180,"label":"State Diagram Legend"},
 		{"id":"404de11bf80b3882","type":"text","text":"State","x":-360,"y":-440,"width":250,"height":60,"color":"6"},
-		{"id":"f83a16f798ae79dd","type":"text","text":"Condition","x":-360,"y":-360,"width":250,"height":60,"color":"3"}
+		{"id":"f83a16f798ae79dd","type":"text","text":"Condition","x":-360,"y":-360,"width":250,"height":60,"color":"3"},
+		{"id":"6dd9660cf4950d02","type":"text","text":"","x":260,"y":-420,"width":50,"height":60},
+		{"id":"96fb72522879e687","type":"text","text":"","x":260,"y":-300,"width":50,"height":60},
+		{"id":"bda94aa835115b9e","type":"text","text":"","x":260,"y":-180,"width":50,"height":60},
+		{"id":"4eecadd1c03f97cb","type":"text","text":"","x":260,"y":-60,"width":50,"height":60},
+		{"id":"319d8f641a322f39","type":"text","text":"","x":0,"y":-419,"width":50,"height":60},
+		{"id":"ef69b0040831628e","type":"text","text":"","x":0,"y":-299,"width":50,"height":60},
+		{"id":"387f317484600a92","type":"text","text":"","x":0,"y":-179,"width":50,"height":60},
+		{"id":"56af58a72413540c","type":"text","text":"","x":0,"y":-59,"width":50,"height":60},
+		{"id":"8136858b7cb7c945","x":360,"y":-420,"width":250,"height":60,"type":"text","text":"Nodes are related"},
+		{"id":"6e3aa1d6ccbd2ec1","x":360,"y":-300,"width":250,"height":60,"type":"text","text":"Node requires next node"},
+		{"id":"2c88fa0cc67dbcd1","x":360,"y":-180,"width":250,"height":60,"type":"text","text":"Node may cause or use next node"}
 	],
-	"edges":[]
+	"edges":[
+		{"id":"5ee0e2a334293d28","fromNode":"319d8f641a322f39","fromSide":"right","toNode":"6dd9660cf4950d02","toSide":"left","toEnd":"none","label":"Association"},
+		{"id":"a3bda7f995a637bf","fromNode":"ef69b0040831628e","fromSide":"right","toNode":"96fb72522879e687","toSide":"left","color":"2","label":"Include"},
+		{"id":"98651b4b9717d9a1","fromNode":"387f317484600a92","fromSide":"right","toNode":"bda94aa835115b9e","toSide":"left","color":"4","label":"Extend"},
+		{"id":"5b889ce3b110473b","fromNode":"56af58a72413540c","fromSide":"right","toNode":"4eecadd1c03f97cb","toSide":"left","toEnd":"none","color":"6","label":"Generalization"}
+	]
 }
