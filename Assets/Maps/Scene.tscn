@@ -98,6 +98,7 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 6, 2.25, 7.063)
 material_override = SubResource("StandardMaterial3D_4hma5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Objects/CSGBox3D5"]
+transform = Transform3D(1, 7.45058e-08, -2.23517e-08, -7.45058e-08, 1, -1.19209e-08, 2.23517e-08, 1.19209e-08, 1, 0, -2.38419e-07, -1.19209e-07)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Objects/CSGBox3D5/StaticBody3D"]
 shape = SubResource("BoxShape3D_d66n4")
@@ -105,7 +106,21 @@ shape = SubResource("BoxShape3D_d66n4")
 [node name="Player" parent="." instance=ExtResource("6_12ran")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 51.0573, 0)
 
+[node name="Camera3D" parent="Player" index="0"]
+transform = Transform3D(-1, 1.39479e-08, 1.28434e-07, 7.94001e-08, 0.850582, 0.525843, -1.01909e-07, 0.525843, -0.850582, 0, 5.49, -3.36)
+
+[node name="meshes" parent="Player" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" parent="Player" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 1, 0)
+
+[node name="VisibleArea" parent="Player" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 1, 0)
+
 [node name="TestEnemy" parent="." instance=ExtResource("6_cp6i6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2587, 1, 6.54553)
 
 [node name="UI" parent="." instance=ExtResource("7_pof8x")]
+
+[editable path="Player"]

@@ -36,7 +36,6 @@ kanban-plugin: basic
 ## In Progress
 
 - [ ] #Add_Functionality #Adrian <br>- [ ] add ai to enemy<br>	- [ ] add enemy ai<br>		- [ ] add enemy wandering
-- [ ] 
 - [ ] #Add_Functionality #Adrian <br>- [ ] make base enemy respond to sight
 - [ ] #Add_Functionality #Eric <br>Tall Grass that hides player
 - [ ] #Add_Functionality #Eric <br>add entity models
@@ -53,6 +52,7 @@ kanban-plugin: basic
 - [ ] #Request #Adrian <br>- [x] refactor player input pair system (it doesnt seem like you need there to be a node for this)
 - [ ] #Feature #Adrian <br>- [x] reimplement default timers with more features
 - [ ] #Feature #Adrian <br>- [x] add custom timers with timescale
+- [ ] #Bug #Eric <br>- [x] Fix crouch so it is not possible to uncrouch into the ceiling
 
 
 

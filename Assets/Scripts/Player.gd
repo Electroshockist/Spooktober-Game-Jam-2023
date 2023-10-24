@@ -29,7 +29,7 @@ var _input_dir: Vector2 = Vector2.ZERO
 
 var _current_speed: float = speed
 
-var _is_on_ceiling: bool = false
+var _full_body_is_on_ceiling: bool = false
 
 enum {
 	NONE,
@@ -53,7 +53,7 @@ func _input(event):
 		
 func _physics_process(_delta):
 		
-	if(_motion_type == CROUCH and _is_on_ceiling and !Input.is_action_pressed("Crouch")):
+	if(_motion_type == CROUCH and !_full_body_is_on_ceiling and !Input.is_action_pressed("Crouch")):
 		_on_crouch_deactivate()
 		if Input.is_action_pressed("Sprint"):
 			_on_sprint_activte()
@@ -96,12 +96,12 @@ func _on_sprint_deactivate():
 func _handle_movement_modifiers(event):
 	##todo turn into generalized stack			
 	#crouching dragon
-	if event.is_action_pressed("Crouch") and !_is_on_ceiling:
+	if event.is_action_pressed("Crouch"):
 		if _motion_type == SPRINT:
 			_on_sprint_deactivate()
 		_on_crouch_activate()
 		
-	elif event.is_action_released("Crouch") and !_is_on_ceiling:
+	elif event.is_action_released("Crouch") and !_full_body_is_on_ceiling:
 		_on_crouch_deactivate()
 		if Input.is_action_pressed("Sprint"):
 			_on_sprint_activte()
@@ -110,7 +110,7 @@ func _handle_movement_modifiers(event):
 	#sprinting tiger
 	if event.is_action_pressed("Sprint"):
 		if(_motion_type == CROUCH):
-			if(!_is_on_ceiling):
+			if(!_full_body_is_on_ceiling):
 				_on_crouch_deactivate()
 				_on_sprint_activte()
 		else:
@@ -130,10 +130,11 @@ func _handle_movement_modifiers(event):
 		SPRINT:
 			_current_speed = speed * sprint_speed_amplification
 
+func _on_head_collision_detector_body_entered(body):
+	print("body entered")
+	_full_body_is_on_ceiling = true
 
-func _on_head_collision_detector_area_entered(area):
-	_is_on_ceiling = true
 
-
-func _on_head_collision_detector_area_exited(area):
-	_is_on_ceiling = false
+func _on_head_collision_detector_body_exited(_body):
+	print("body exited")
+	_full_body_is_on_ceiling = false
