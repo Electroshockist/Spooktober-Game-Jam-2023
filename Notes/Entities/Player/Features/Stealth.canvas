@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"6b2a3ac3c5fd0d99","type":"group","x":517,"y":-281,"width":583,"height":400,"label":"Enemy"},
+		{"id":"df294e29f5b0c23d","type":"group","x":117,"y":-281,"width":400,"height":400,"label":"Player"},
+		{"id":"6fb36f9bae4114cf","type":"text","text":"Start","x":135,"y":-247,"width":250,"height":29},
+		{"id":"7d883267e1ee6287","type":"text","text":"Enemy Sees Player","x":560,"y":-247,"width":250,"height":29},
+		{"id":"4c4bcc0513af0b27","type":"text","text":"X","x":540,"y":-100,"width":93,"height":29,"color":"1"},
+		{"id":"192738b1ad9f7dd6","x":660,"y":-100,"width":251,"height":29,"type":"text","text":"Enemy Chases player"}
+	],
+	"edges":[
+		{"id":"03ab50a0c9fe9e96","fromNode":"6fb36f9bae4114cf","fromSide":"right","toNode":"7d883267e1ee6287","toSide":"left"},
+		{"id":"04f098d2cb802953","fromNode":"7d883267e1ee6287","fromSide":"bottom","toNode":"4c4bcc0513af0b27","toSide":"top","label":"No"},
+		{"id":"a9ca89a70df1a280","fromNode":"7d883267e1ee6287","fromSide":"bottom","toNode":"192738b1ad9f7dd6","toSide":"top","label":"Yes"}
+	]
+}
