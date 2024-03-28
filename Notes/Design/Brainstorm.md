@@ -30,3 +30,4 @@ friendly npcs can die, but it must be player's fault
 
 **Goal**
 Escape the catacombs
+
